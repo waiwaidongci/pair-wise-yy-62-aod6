@@ -45,6 +45,7 @@ import {
   IconRefresh,
   IconRulerMeasure,
   IconRoute,
+  IconScale,
   IconShip,
   IconUsers
 } from '@tabler/icons-react';
@@ -65,10 +66,12 @@ import {
   updateLashing,
   type RootState
 } from './store';
+import WeightPage from './WeightPage';
 
 const nav = [
   { path: '/', label: '航次总览', icon: <IconShip size={17} /> },
   { path: '/stowage', label: '配载与货位', icon: <IconLayoutBoardSplit size={17} /> },
+  { path: '/weight', label: '重量依据', icon: <IconScale size={17} /> },
   { path: '/compare', label: '方案对比', icon: <IconHistory size={17} /> },
   { path: '/print', label: '配载图与清单', icon: <IconPrinter size={17} /> }
 ];
@@ -320,5 +323,5 @@ function Shell({ children }: { children: ReactNode }) {
 }
 
 export default function App() {
-  return <BrowserRouter><Shell><Routes><Route path="/" element={<Overview />} /><Route path="/stowage" element={<Stowage />} /><Route path="/compare" element={<Compare />} /><Route path="/print" element={<PrintPlan />} /><Route path="*" element={<Navigate to="/" replace />} /></Routes></Shell></BrowserRouter>;
+  return <BrowserRouter><Shell><Routes><Route path="/" element={<Overview />} /><Route path="/stowage" element={<Stowage />} /><Route path="/weight" element={<WeightPage />} /><Route path="/compare" element={<Compare />} /><Route path="/print" element={<PrintPlan />} /><Route path="*" element={<Navigate to="/" replace />} /></Routes></Shell></BrowserRouter>;
 }
